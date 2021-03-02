@@ -1,0 +1,78 @@
+<app-header></app-header>
+
+<main id="main">
+
+  <!-- ======= Breadcrumbs Section ======= -->
+  <section class="breadcrumbs">
+    <div class="container">
+
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>Project Details</h2>
+        <ol>
+          <li><a href="#">Home</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li>Project Details</li>
+        </ol>
+      </div>
+
+    </div>
+  </section><!-- Breadcrumbs Section -->
+
+  <!-- ======= Portfolio Details Section ======= -->
+  <section class="portfolio-details">
+    <div class="container">
+
+      <div class="portfolio-details-container">
+        <owl-carousel-o [options]="customOptions" class="portfolio-details-carousel"
+                        *ngIf="project && project.imageList && project.imageList.length > 0; else noImageTemplate">
+          <ng-template carouselSlide *ngFor="let imageDetails of project.imageList">
+            <div class="slide">
+              <img [src]="imageDetails.imagePath" [alt]="imageDetails.altText"
+                   style="max-height: 60vh;object-fit: scale-down;">
+            </div>
+          </ng-template>
+        </owl-carousel-o>
+
+        <ng-template #noImageTemplate>
+          <div class="container">
+            <div class="no-image-container">
+              <p>no images attached</p>
+            </div>
+          </div>
+        </ng-template>
+        <div class="portfolio-info">
+          <h3>Project information</h3>
+          <ul>
+            <li *ngIf="project && project.projectInfo && project.projectInfo.category">
+              <strong>Category</strong>: {{project.projectInfo.category}}</li>
+            <li *ngIf="project && project.projectInfo && project.projectInfo.client">
+              <strong>Client</strong>: {{project.projectInfo.client}}</li>
+            <li *ngIf="project && project.projectInfo && project.projectInfo.projectDate"><strong>Project
+              date</strong>: {{project.projectInfo.projectDate}}</li>
+            <li *ngIf="project && project.projectInfo && project.projectInfo.projectUrl"><strong>Project URL</strong>:
+              <a [href]="project.projectInfo.projectUrl" target="_blank">{{project.projectInfo.projectUrl}}</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="portfolio-description">
+        <h2 *ngIf="project && project.header">{{project.header}}</h2>
+        <ng-container *ngIf="project && project.description && project.description.length > 0">
+          <p *ngFor="let desc of project.description">{{desc}}</p>
+        </ng-container>
+      </div>
+
+      <div class="responsibilities">
+        <h4 class="font-weight-bold">Tasks & Achievements</h4>
+        <ul *ngIf="project && project.responsibilities && project.responsibilities.length > 0">
+          <li *ngFor="let responsibility of project.responsibilities">{{responsibility}}</li>
+        </ul>
+      </div>
+    </div>
+  </section><!-- End Portfolio Details Section -->
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<app-footer></app-footer>

@@ -1,0 +1,21 @@
+<div class="container my-3" *ngIf="feedbacks && feedbacks.length > 0; else error">
+  <div class="card-deck">
+    <div class="card" *ngFor="let feedback of feedbacks">
+      <div class="card-body">
+        <div class="d-flex justify-content-between small">
+          <span>{{feedback.name}}</span>
+          <span>{{feedback.email}}</span>
+          <span>{{feedback.createdAt | date}}</span>
+        </div>
+        <h4>{{feedback.subject}}</h4>
+        <p>{{feedback.message}}</p>
+        <div class="text-center">
+          <button class="btn btn-danger" (click)="onDeleteClick(feedback.id)">Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #error>
+  <p class="mt-5 text-center">No Feedbacks</p>
+</ng-template>

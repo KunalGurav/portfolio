@@ -1,0 +1,11 @@
+<div class="overlay" [hidden]="!show" [class.active]="show">
+  <div class="spinner-wrapper" *ngIf="show">
+    <div class="screen-center">
+      <div class="center-card card">
+        <img src="../../assets/img/spinner-image.webp" class="img-fluid">
+        <h5 class="font-weight-bold text-center">Processing...</h5>
+        <p class="text-center">Please wait</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+.overlay {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1060;
+  opacity: 0;
+  transition: 1s;
+  transition-timing-function: ease-in-out;
+}
+
+.overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+.spinner-wrapper {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+
+.center-card{
+  width: 75vw;
+  max-width: 300px;
+}
+
+.screen-center{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
