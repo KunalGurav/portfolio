@@ -1,0 +1,59 @@
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top d-flex justify-content-center align-items-center" #mainNav
+        (scroll)="onNavBarScroll($event)">
+
+  <nav class="nav-menu d-none d-lg-block">
+    <ul>
+      <li uniScrollItem="home"><a href="#">Home</a></li>
+      <li uniScrollItem="about"><a href="#about">About</a></li>
+      <li uniScrollItem="resume"><a href="#resume">Resume</a></li>
+      <li uniScrollItem="services"><a href="#services">Services</a></li>
+      <li uniScrollItem="portfolio"><a href="#portfolio">Portfolio</a></li>
+      <li uniScrollItem="contact"><a href="#contact">Contact</a></li>
+    </ul>
+  </nav><!-- .nav-menu -->
+  <!--<nav id="navbar" [ngClass]="isNavOpen ? 'navbar navbar-mobile d-block d-lg-none': 'navbar d-block d-lg-none'">
+    <ul>
+      <li uniScrollItem="home"><a href="#">Home</a></li>
+      <li uniScrollItem="about"><a href="#about">About</a></li>
+      <li uniScrollItem="resume"><a href="#resume">Resume</a></li>
+      <li uniScrollItem="services"><a href="#services">Services</a></li>
+      <li uniScrollItem="portfolio"><a href="#portfolio">Portfolio</a></li>
+      <li uniScrollItem="contact"><a href="#contact">Contact</a></li>
+    </ul>
+    <i [ngClass]="isNavOpen ? 'bi mobile-nav-toggle bi-x':'bi mobile-nav-toggle bi-list'" (click)="isNavOpen = !isNavOpen"></i>
+  </nav>-->
+
+  <div class="d-block d-lg-none">
+    <button class="navbar-toggler" type="button" data-toggle="modal" data-target="#mobileNavModal"
+            aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="bx bx-menu bx-md text-white"></i>
+    </button>
+  </div>
+</header><!-- End Header -->
+
+<!--Modal for nav begins here-->
+<div class="modal fade" id="mobileNavModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <nav id="navbar" class="navbar navbar-mobile">
+          <ul>
+            <li uniScrollItem="home"><a href="#">Home</a></li>
+            <li uniScrollItem="about"><a href="#about">About</a></li>
+            <li uniScrollItem="resume"><a href="#resume">Resume</a></li>
+            <li uniScrollItem="services"><a href="#services">Services</a></li>
+            <li uniScrollItem="portfolio"><a href="#portfolio">Portfolio</a></li>
+            <li uniScrollItem="contact"><a href="#contact">Contact</a></li>
+          </ul>
+          <i class="bi mobile-nav-toggle bi-x"></i>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Modal of nav ends here-->
